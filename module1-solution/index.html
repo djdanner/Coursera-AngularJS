@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="LunchCheck">
   <head>
     <title>Lunch Checker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,21 +9,36 @@
     </style>
   </head>
 <body>
-   <div class="container">
+   <div class="container" ng-controller="MyController">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control"
+             ng-model="textBoxInput">
          </div>
+         <p>
+         {{textBoxInput}}
+         <p>
          <div class="form-group">
              <button class="btn btn-default">Check If Too Much</button>
          </div>
          <div class="form-group message">
            <!-- Your message can go here. -->
          </div>
+
+         {{aaaTestString}}<p>
+         {{aaaTestFunction()}}<p>
    </div>
+
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+
+<!-- // TODO:
+5. Import AngularJS into your project by placing a `<script>` tag right before the `</body>` tag.
+6. Declare `ng-app` either on the `html` or the `body` element. Name your app `LunchCheck`.
+-->
 
 </body>
 </html>
