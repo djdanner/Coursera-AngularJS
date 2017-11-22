@@ -9,11 +9,7 @@
 // so that line is actually module.controller() ???
 angular.module('LunchCheck', [])
 
-.controller('LunchCheckController', LunchCheckController);
-
-LunchCheckController.$inject = ['$scope', '$filter'];
-
-function LunchCheckController($scope, $filter){
+.controller('LunchCheckController', function($scope){
 
   $scope.textBoxInput = '';
   $scope.placeholderText ='list comma separated dishes you usually have for lunch';
@@ -22,6 +18,7 @@ function LunchCheckController($scope, $filter){
   $scope.aaaTestFunction = function(){
     return"Ran aaaTestFunction()\n"
   };
-}
+
+});
 
 })();
