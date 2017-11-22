@@ -1,4 +1,4 @@
-// Encapsulate everything in an iffy:  ()();
+// Encapsulate everything in an IIFE (iffy):  ()();
 (function() {
 'use strict';
 
@@ -18,6 +18,11 @@ function LunchCheckController($scope, $filter){
   $scope.textBoxInput = '';
   $scope.placeholderText ='list comma separated dishes you usually have for lunch';
 
+  $scope.processUserInput = function(){
+    $scope.aaaTestString = "AAA";
+  };
+
+  // For testing:
   $scope.aaaTestString = 'A Test String.';
   $scope.aaaTestFunction = function(){
     return"Ran aaaTestFunction()\n"
