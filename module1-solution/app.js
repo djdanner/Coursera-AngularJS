@@ -28,6 +28,8 @@ function LunchCheckController($scope, $filter){
   $scope.fedbackMessageToUser= 'Welcome!';
   $scope.placeholderText ='list comma separated dishes you usually have for lunch';
 
+  $scope.warningMessage = "This DOES NOT consider and empty item, i.e., `, ,` as an item towards to the count.";
+
   // The user enters a comma-separated list of the items they are having
   // for lunch, and then presses the "Check if Too Much" button which
   // calls this function.
@@ -56,27 +58,11 @@ function LunchCheckController($scope, $filter){
     }
 
     if (numItemsForLunch == 0)
-        $scope.fedbackMessageToUser= '0';
+        $scope.fedbackMessageToUser= 'Please enter data first';
     else if (numItemsForLunch <= 3)
-        $scope.fedbackMessageToUser= '<= 3';
+        $scope.fedbackMessageToUser= 'Enjoy!';
     else if (numItemsForLunch > 3)
-        $scope.fedbackMessageToUser= '> 3';
-
-    // switch(numItemsForLunch) {
-    //   case 0:
-    //     $scope.fedbackMessageToUser= 'Welcome!';
-    //     break;
-    //   case (<= 3):
-    //     $scope.fedbackMessageToUser= 'Welcome!';
-    //     break;
-    //   case (> 3):
-    //     $scope.fedbackMessageToUser= 'Welcome!';
-    //     break;
-    //   default:
-    //     $scope.fedbackMessageToUser= 'Welcome!';
-    //     break;
-    // }
-
+        $scope.fedbackMessageToUser= 'Too much!';
   };
 
   // For testing:
