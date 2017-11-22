@@ -11,7 +11,7 @@
 <body>
    <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
-     <h4>{{warningMessage}}</h4>
+     <h4>{{warningMessageAboutEmptyItems}}</h4>
 
          <div class="form-group">
              <input id="lunch-menu"
@@ -20,9 +20,6 @@
              class="form-control"
              ng-model="textBoxInput">
          </div>
-         <!-- <p>
-         {{textBoxInput}} -->
-         <p>
          {{fedbackMessageToUser}}
          <p>
          <div class="form-group">
@@ -41,11 +38,6 @@
 
 <script src="angular.min.js"></script>
 <script src="app.js"></script>
-
-<!-- // TODO:
-5. Import AngularJS into your project by placing a `<script>` tag right before the `</body>` tag.
-6. Declare `ng-app` either on the `html` or the `body` element. Name your app `LunchCheck`.
--->
 
 </body>
 </html>

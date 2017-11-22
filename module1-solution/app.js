@@ -1,12 +1,15 @@
+//---------------------------------------------------------------------
 // Dan Danner
 // 11/22/2017
 //
 // Coursera Course:  Single Page Web Applications with AngularJS
 // https://www.coursera.org/learn/single-page-web-apps-with-angularjs
+//---------------------------------------------------------------------
 
-// Encapsulate everything in an IIFE (iffy) to prevent
-// leakage to the global scope:  ()();
-// (function () { })();
+// Encapsulate everything in an IIFE (iffy) to prevent symbol
+// leakage to the global scope:
+//     ()();
+//     (function () { })();
 // IIFE = Immediately Invoked Function Expression
 (function() {
 'use strict';
@@ -20,16 +23,17 @@ angular.module('LunchCheck', [])
 
 .controller('LunchCheckController', LunchCheckController);
 
+// This structure safely injects the scope into the Controller and protects it
+// against corruption during Minification.
 LunchCheckController.$inject = ['$scope', '$filter'];
 
 function LunchCheckController($scope, $filter){
-
   $scope.textBoxInput = '';
   $scope.fedbackMessageToUser= 'Welcome!';
   $scope.placeholderText ='list comma separated dishes you usually have for lunch';
+  $scope.warningMessageAboutEmptyItems = "This DOES NOT consider and empty item, i.e., `, ,` as an item towards to the count.";
 
-  $scope.warningMessage = "This DOES NOT consider and empty item, i.e., `, ,` as an item towards to the count.";
-
+  //---------------------------------------------------------------------
   // The user enters a comma-separated list of the items they are having
   // for lunch, and then presses the "Check if Too Much" button which
   // calls this function.
@@ -38,6 +42,7 @@ function LunchCheckController($scope, $filter){
   //      0    "Please enter data first"
   //    <= 3   "Enjoy!"
   //     > 3   "Too much!"
+  //---------------------------------------------------------------------
   $scope.checkIfTooMuchButtonClick = function(){
     // $scope.aaaTestString = 'AAA';
 
@@ -65,10 +70,12 @@ function LunchCheckController($scope, $filter){
         $scope.fedbackMessageToUser= 'Too much!';
   };
 
-  // For testing:
+  //---------------------------------------------------------------------
+  // For initial testing:
   $scope.aaaTestString = 'A Test String.';
   $scope.aaaTestFunction = function(){
     return"Ran aaaTestFunction()\n"
+  //---------------------------------------------------------------------
   };
 }
 
