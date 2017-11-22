@@ -37,8 +37,46 @@ function LunchCheckController($scope, $filter){
   //    <= 3   "Enjoy!"
   //     > 3   "Too much!"
   $scope.checkIfTooMuchButtonClick = function(){
-    $scope.aaaTestString = 'AAA';
-    
+    // $scope.aaaTestString = 'AAA';
+
+    var separator = ",";
+    var stringToSplit = $scope.textBoxInput;
+
+    var arrayOfStrings = stringToSplit.split(separator);
+    var numItemsForLunch = arrayOfStrings.length;
+
+    console.clear();
+    console.log('The original string is: "' + stringToSplit + '"');
+    console.log('The separator is: "' + separator + '"');
+    console.log('The array has ' + numItemsForLunch + ' elements: ' + arrayOfStrings.join(' / '));
+
+    for (var s of arrayOfStrings){
+      // If it's am empty string, then don't count it.
+      if (!s) numItemsForLunch--;
+    }
+
+    if (numItemsForLunch == 0)
+        $scope.fedbackMessageToUser= '0';
+    else if (numItemsForLunch <= 3)
+        $scope.fedbackMessageToUser= '<= 3';
+    else if (numItemsForLunch > 3)
+        $scope.fedbackMessageToUser= '> 3';
+
+    // switch(numItemsForLunch) {
+    //   case 0:
+    //     $scope.fedbackMessageToUser= 'Welcome!';
+    //     break;
+    //   case (<= 3):
+    //     $scope.fedbackMessageToUser= 'Welcome!';
+    //     break;
+    //   case (> 3):
+    //     $scope.fedbackMessageToUser= 'Welcome!';
+    //     break;
+    //   default:
+    //     $scope.fedbackMessageToUser= 'Welcome!';
+    //     break;
+    // }
+
   };
 
   // For testing:
