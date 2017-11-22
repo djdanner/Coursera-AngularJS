@@ -1,4 +1,13 @@
-// Encapsulate everything in an IIFE (iffy):  ()();
+// Dan Danner
+// 11/22/2017
+//
+// Coursera Course:  Single Page Web Applications with AngularJS
+// https://www.coursera.org/learn/single-page-web-apps-with-angularjs
+
+// Encapsulate everything in an IIFE (iffy) to prevent
+// leakage to the global scope:  ()();
+// (function () { })();
+// IIFE = Immediately Invoked Function Expression
 (function() {
 'use strict';
 
@@ -16,10 +25,20 @@ LunchCheckController.$inject = ['$scope', '$filter'];
 function LunchCheckController($scope, $filter){
 
   $scope.textBoxInput = '';
+  $scope.fedbackMessageToUser= 'Welcome!';
   $scope.placeholderText ='list comma separated dishes you usually have for lunch';
 
-  $scope.processUserInput = function(){
-    $scope.aaaTestString = "AAA";
+  // The user enters a comma-separated list of the items they are having
+  // for lunch, and then presses the "Check if Too Much" button which
+  // calls this function.
+  // This function process that input and then displays one of the following
+  // messages based on numItemsForLunch:
+  //      0    "Please enter data first"
+  //    <= 3   "Enjoy!"
+  //     > 3   "Too much!"
+  $scope.checkIfTooMuchButtonClick = function(){
+    $scope.aaaTestString = 'AAA';
+    
   };
 
   // For testing:
@@ -29,4 +48,4 @@ function LunchCheckController($scope, $filter){
   };
 }
 
-})();
+})();  // end of IIFE
