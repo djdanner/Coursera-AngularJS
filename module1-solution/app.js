@@ -9,11 +9,12 @@
 // so that line is actually module.controller() ???
 angular.module('LunchCheck', [])
 
-.controller('MyController', function($scope){
+.controller('LunchCheckController', function($scope){
 
-  $scope.textBoxInput = "";
+  $scope.textBoxInput = '';
+  $scope.placeholderText ='list comma separated dishes you usually have for lunch';
 
-  $scope.aaaTestString = "A Test String.";
+  $scope.aaaTestString = 'A Test String.';
   $scope.aaaTestFunction = function(){
     return"Ran aaaTestFunction()\n"
   };
