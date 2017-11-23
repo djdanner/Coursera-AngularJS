@@ -44,6 +44,8 @@ function LunchCheckController($scope, $filter){
   //     > 3   "Too much!"
   //---------------------------------------------------------------------
   $scope.checkIfTooMuchButtonClick = function(){
+    // $scope.aaaTestString = 'AAA';
+
     var separator = ',';
     var stringToSplit = $scope.textBoxInput;
 
@@ -55,16 +57,39 @@ function LunchCheckController($scope, $filter){
     console.log('The separator is: "' + separator + '"');
     console.log('The array has ' + numItemsForLunch + ' elements: ' + arrayOfStrings.join(' / '));
 
-    // If it's a string of all spaces, then don't count it.
+    var k = 1;
     for (var s of arrayOfStrings){
+      // If it's an empty string, or a string of all spaces,
+      // then don't count it.
 
+      // if (!s) {
+      //   numItemsForLunch--;
+      //   console.log('Empty string.');
+      // }
       var allBlanks = true;
 
+      // for (var i = 0; i < s.length; i++){
+      //   if (s[i] != '\u0020') allBlanks = false;
+      // }
+
       for (var i = 0; i < s.length; i++){
-        if (s[i] != ' ') allBlanks = false;
+        console.log('k= ' + k);
+
+        if (!s) {
+          console.log('k= ' + k);
+          console.log('Empty string.');
+        }
+        if (s[i] != ' '){
+          console.log('k= ' + k);
+          console.log('Not all blanks.');
+          allBlanks = false;
+        }
       }
 
       if (allBlanks) numItemsForLunch--;
+
+      k++;
+      // console.log('Substring length: ' + s.length);
     }
 
     console.log('numItemsForLunch filtered: ' + numItemsForLunch );
